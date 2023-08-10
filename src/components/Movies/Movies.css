@@ -1,0 +1,22 @@
+.movies__more-button {
+  cursor: pointer;
+  border: none;
+  width: 320px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.movies__button-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 75px 0 90px;
+  display: flex;
+  justify-content: center;
+}

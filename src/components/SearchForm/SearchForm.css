@@ -1,0 +1,124 @@
+.search-form {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 70px 70px 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    max-width: 708px;
+    padding: 74px 30px 81px 30px;
+  }
+}
+
+.search-form__rectangle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  border-radius: 9px;
+  background: #fdfdfd;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+}
+
+.search-form__search-elements {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin: 0 0 0 19px;
+}
+
+.search-form__search-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.search-form__search-input {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  border: none;
+  outline: none;
+}
+
+.search-form__search-input::placeholder {
+  color: #a0a0a0;
+}
+
+.search-form__search-items {
+  display: flex;
+  align-items: center;
+  margin: 0 30px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__search-items {
+    margin: 0 20px 0 0;
+  }
+}
+
+.search-form__search-button {
+  margin: 0 19px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  width: 58.65px;
+  height: 34px;
+  border-radius: 48px;
+  background: #000;
+  cursor: pointer;
+  border: none;
+}
+
+.search-form__search-vr {
+  margin: 0 29px 0 0;
+  border: 1px solid #cbcbcb;
+  height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__search-vr {
+    margin: 0 19px 0 0;
+  }
+  
+}
+
+.search-form__search-subtitle {
+  margin: 0 0 0 14px;
+  padding: 0;
+  color: #000;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__search-subtitle {
+    margin: 0 0 0 16px;
+    padding: 0;
+    color: #000;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+  }
+  
+}
+
+.search-form__divider {
+  margin: 69px 0 0;
+  border: 1px solid #e8e8e8;
+  max-width: 1140px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__divider {
+    margin: 109px 0 0;
+  }
+  
+}
