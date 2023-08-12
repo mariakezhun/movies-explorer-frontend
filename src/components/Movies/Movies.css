@@ -1,7 +1,7 @@
 .movies__more-button {
   cursor: pointer;
   border: none;
-  width: 320px;
+  width: 410px;
   height: 36px;
   border-radius: 6px;
   background-color: #f9f9f9;
@@ -11,6 +11,17 @@
   font-weight: 500;
   margin: 0;
   padding: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.movies__more-button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 410px) {
+  .movies__more-button {
+    width: 240px;
+  }
 }
 
 .movies__button-container {
@@ -19,4 +30,11 @@
   padding: 75px 0 90px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 410px) {
+  .movies__button-container {
+    max-width: 300px;
+    padding: 60px 0 99px;
+  }
 }

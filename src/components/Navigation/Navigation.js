@@ -1,6 +1,7 @@
 import './Navigation.css';
 import { useLocation } from 'react-router-dom';
 import React from 'react';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 function Navigation() {
   const navigationLocation = useLocation();

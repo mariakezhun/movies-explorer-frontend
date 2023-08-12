@@ -13,9 +13,6 @@ function SavedMovies() {
       <Header loggedIn={loggedIn} />
       <SearchForm />
       <MoviesCardList />
-      <div className='movies__button-container'>
-        <button className='movies__more-button'>Ещё</button>
-      </div>
       <Footer />
     </section>
   );

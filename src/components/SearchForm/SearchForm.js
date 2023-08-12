@@ -7,7 +7,8 @@ function SearchForm() {
   return (
     <section className='search-form'>
       <div className='search-form__rectangle'>
-        <div className='search-form__search-elements'>
+        <div className='search-form__search-container'>
+          <div className='search-form__search-elements'>
           <img
             className='search-form__search-icon'
             src={searchIcon}
@@ -20,9 +21,11 @@ function SearchForm() {
             placeholder='Фильм'
             id='search-form'
           />
+          </div>
+          <button className='search-form__search-button'>Найти</button>
         </div>
         <div className='search-form__search-items'>
-          <button className='search-form__search-button'>Найти</button>
+          {/* <button className='search-form__search-button'>Найти</button> */}
           <hr className='search-form__search-vr' />
           <Toggle />
           <p className='search-form__search-subtitle'>Короткометражки</p>

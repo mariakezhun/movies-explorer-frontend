@@ -42,7 +42,7 @@ function Header(props) {
               path='/'
               element={
                 <>
-                  <Link className='header__link' to='/'>
+                  <Link className='header__link' to='/signup'>
                     <button className='header__nav-button header__nav-button_type_signup'>
                       Регистрация
                     </button>

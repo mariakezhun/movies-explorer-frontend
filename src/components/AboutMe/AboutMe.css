@@ -7,11 +7,11 @@
 @media screen and (max-width: 768px) {
   .about-me {
     max-width: 668px;
-    padding: 90px 50px 90px 50px;
+    padding: 90px 50px 69px 50px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 410px) {
   .about-me {
     max-width: 292px;
     padding: 70px 14px 70px 14px;
@@ -28,7 +28,7 @@
   letter-spacing: -0.055rem;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 410px) {
   .about-me__title {
     font-size: 1.125rem;
     letter-spacing: -0.045rem;
@@ -55,15 +55,49 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 650px) {
   .about-me__student {
     margin: 60px 0 0;
     flex-direction: column-reverse;
+    row-gap: 40px;
   }
 }
 
-/* .about-me__student-info {
-} */
+@media screen and (max-width: 1064px) {
+  .about-me__student-info {
+    max-width: 480px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .about-me__student-info {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .about-me__student-info {
+    max-width: 364px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .about-me__student-info {
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .about-me__student-info {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .about-me__student-info {
+    max-width: 100%;
+  }
+}
 
 .about-me__student-title {
   margin: 0 0 18px;
@@ -84,6 +118,15 @@
   }
 }
 
+@media screen and (max-width: 410px) {
+  .about-me__student-title {
+    margin: 0 0 20px;
+    font-size: 1.875rem;
+    line-height: normal;
+    letter-spacing: -0.075rem;
+  }
+}
+
 .about-me__student-subtitle {
   margin: 0 0 26px;
   padding: 0;
@@ -98,6 +141,13 @@
     margin: 0 0 20px;
     font-size: 0.75rem;
     line-height: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .about-me__student-subtitle {
+    font-size: 0.6875rem;
+    line-height: 1rem;
   }
 }
 
@@ -120,6 +170,20 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  .about-me__student-paragraph {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .about-me__student-paragraph {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    margin: 0 0 39px;
+  }
+}
+
 .about-me__student-link {
   margin: 0;
   padding: 0;
@@ -128,6 +192,11 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.about-me__student-link:hover {
+  opacity: 0.7;
 }
 
 .about-me__student-photo {
@@ -135,14 +204,21 @@
   max-height: 327px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .about-me__student-photo {
     max-width: 255px;
     max-height: 307px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 690px) {
+  .about-me__student-photo {
+    max-width: 224px;
+    max-height: 270px;
+  }
+}
+
+@media screen and (max-width: 410px) {
   .about-me__student-photo {
     max-width: 292px;
     max-height: 352px;
@@ -159,6 +235,12 @@
   }
 }
 
+@media screen and (max-width: 410px) {
+  .about-me__portfolio {
+    margin: 70px 0 0;
+  }
+}
+
 .about-me__portfolio-title {
   margin: 0 0 50px;
   padding: 0;
@@ -168,12 +250,24 @@
   line-height: 1.25rem;
 }
 
+@media screen and (max-width: 410px) {
+  .about-me__portfolio-title {
+    margin: 0 0 40px;
+    font-size: 0.875rem;
+  }
+}
+
 .about-me__portfolio-link {
   margin: 0 0 28px;
   padding: 0;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.about-me__portfolio-link:hover {
+  opacity: 0.7;
 }
 
 .about-me__portfolio-link:last-child {
@@ -184,6 +278,13 @@
   .about-me__portfolio-link {
     height: 70px;
     margin: 0 0 20px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .about-me__portfolio-link {
+    height: 46px;
+    margin: 0 0 21px;
   }
 }
 
@@ -209,6 +310,14 @@
   }
 }
 
+@media screen and (max-width: 410px) {
+  .about-me__portfolio-link-text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.045rem;
+  }
+}
+
 .about-me__portfolio-link-arrow {
   margin: 0;
   padding: 0;
@@ -225,5 +334,13 @@
   .about-me__portfolio-link-arrow {
     font-size: 1.75rem;
     letter-spacing: -0.07rem;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .about-me__portfolio-link-arrow {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.045rem;
   }
 }

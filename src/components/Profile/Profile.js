@@ -38,14 +38,19 @@ function Profile(props) {
               placeholder='pochta@yandex.ru'
             />
           </label>
-          {props.isEdit ? (
-            <button className='profile__button'>Сохранить</button>
-          ) : (
-            <>
-              <button className='profile__edit'>Редактировать</button>
-              <button className='profile__signout'>Выйти из аккаунта</button>
-            </>
-          )}
+          <div className='profile__save-container'>
+            <p className='profile__error'>
+              {/* При обновлении профиля произошла ошибка. */}
+            </p>
+            {props.isEdit ? (
+              <button className='profile__button'>Сохранить</button>
+            ) : (
+              <>
+                <button className='profile__edit'>Редактировать</button>
+                <button className='profile__signout'>Выйти из аккаунта</button>
+              </>
+            )}
+          </div>
         </form>
       </section>
     </>
