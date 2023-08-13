@@ -12,7 +12,7 @@ function Main() {
   const [loggedIn] = React.useState(false);
 
   return (
-    <section className='main'>
+    <main className='main'>
       <Header loggedIn={loggedIn} />
       <Promo />
       <NavTab />
@@ -20,7 +20,7 @@ function Main() {
       <Techs />
       <AboutMe />
       <Footer />
-    </section>
+    </main>
   );
 }
 

@@ -8,7 +8,7 @@ function SearchForm() {
     <section className='search-form'>
       <div className='search-form__rectangle'>
         <div className='search-form__search-container'>
-          <div className='search-form__search-elements'>
+          <form className='search-form__form'>
           <img
             className='search-form__search-icon'
             src={searchIcon}
@@ -21,7 +21,7 @@ function SearchForm() {
             placeholder='Фильм'
             id='search-form'
           />
-          </div>
+          </form>
           <button className='search-form__search-button'>Найти</button>
         </div>
         <div className='search-form__search-items'>

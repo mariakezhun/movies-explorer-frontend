@@ -36,54 +36,44 @@ function AboutMe() {
       </div>
       <div className='about-me__portfolio'>
         <h3 className='about-me__portfolio-title'>Портфолио</h3>
-        <div className='about-me__portfolio-link'>
-          <a
-            className='about-me__portfolio-link-text'
-            href='https://github.com/mariakezhun/how-to-learn'
-            target='_blank'
-          >
-            Статичный сайт
-          </a>
-          <a
-            className='about-me__portfolio-link-arrow'
-            href='https://github.com/mariakezhun/how-to-learn'
-            target='_blank'
-          >
-            ↗
-          </a>
-        </div>
-        <div className='about-me__portfolio-link'>
-          <a
-            className='about-me__portfolio-link-text'
-            href='https://github.com/mariakezhun/russian-travel'
-            target='_blank'
-          >
-            Адаптивный сайт
-          </a>
-          <a
-            className='about-me__portfolio-link-arrow'
-            href='https://github.com/mariakezhun/russian-travel'
-            target='_blank'
-          >
-            ↗
-          </a>
-        </div>
-        <div className='about-me__portfolio-link'>
-          <a
-            className='about-me__portfolio-link-text'
-            href='https://github.com/mariakezhun/react-mesto-auth'
-            target='_blank'
-          >
-            Одностраничное приложение
-          </a>
-          <a
-            className='about-me__portfolio-link-arrow'
-            href='https://github.com/mariakezhun/react-mesto-auth'
-            target='_blank'
-          >
-            ↗
-          </a>
-        </div>
+        <ul className='about-me__portfolio-link-container'>
+          <li className='about-me__list'>
+            <a
+              className='about-me__portfolio-link'
+              href='https://github.com/mariakezhun/how-to-learn'
+              target='_blank'
+            >
+              <p className='about-me__portfolio-link-text'>Статичный сайт</p>
+              <p className='about-me__portfolio-link-arrow'>↗</p>
+            </a>
+          </li>
+        </ul>
+        <ul className='about-me__portfolio-link-container'>
+          <li className='about-me__list'>
+            <a
+              className='about-me__portfolio-link'
+              href='https://github.com/mariakezhun/russian-travel'
+              target='_blank'
+            >
+              <p className='about-me__portfolio-link-text'>Адаптивный сайт</p>
+              <p className='about-me__portfolio-link-arrow'>↗</p>
+            </a>
+          </li>
+        </ul>
+        <ul className='about-me__portfolio-link-container'>
+          <li className='about-me__list'>
+            <a
+              className='about-me__portfolio-link'
+              href='https://github.com/mariakezhun/react-mesto-auth'
+              target='_blank'
+            >
+              <p className='about-me__portfolio-link-text'>
+                Одностраничное приложение
+              </p>
+              <p className='about-me__portfolio-link-arrow'>↗</p>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   );

@@ -48,7 +48,7 @@
 }
 
 .login__form {
-  margin: 0 0 34px;
+  margin: 0 0 156px;
   display: flex;
   flex-direction: column;
 }
@@ -56,7 +56,7 @@
 @media screen and (max-width: 450px) {
   .login__form {
     width: 260px;
-    margin: 0 0 123px;
+    margin: 0 0 243px;
   }
 }
 
@@ -125,7 +125,6 @@
   text-align: center;
   font-size: 0.875rem;
   font-weight: 500;
-  align-self: flex-end;
 }
 
 @media screen and (max-width: 450px) {
