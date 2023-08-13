@@ -1,0 +1,217 @@
+/* .navigation {
+}
+
+.navigation__list {
+} */
+
+@media screen and (max-width: 768px) {
+  .navigation__list {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.navigation__list_opened {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.navigation__container {
+  column-gap: 22px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__container {
+    padding: 162px 0 0;
+    height: 100%;
+    width: 520px;
+    background-color: #fff;
+    flex-direction: column;
+    /* row-gap: 28px; */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__underline{
+    margin: 0 0 31px;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .navigation__underline:hover {
+    opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__underline_active{
+    /* height: 28px; */
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px;
+  }
+}
+
+.navigation__link {
+  color: #000;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  text-decoration: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.navigation__link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__link {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+}
+
+.navigation__link_type_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__link_type_mobile {
+    display: block;
+  }
+}
+
+.navigation__link_active {
+  font-weight: 500;
+}
+
+.navigation__account-container {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  margin: 0 0 0 22px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__account-container {
+    margin: 586px 0 0;
+  }
+}
+
+.navigation__account-container:hover {
+  opacity: 0.8;
+}
+
+.navigation__account {
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-decoration: none;
+}
+
+.navigation__account-icon {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  background-color: #f9f9f9;
+  background-image: url(../../images/account-icon.png);
+  background-size: 10.383px 10.669px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.navigation__burger-button {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: none;
+  position: relative;
+  z-index: 4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.navigation__burger-button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__burger-button {
+    display: block;
+  }
+}
+
+.navigation__burger-button_type_burger {
+  width: 44px;
+  height: 44px;
+  background-image: url(../../images/burger-icon-768.svg);
+  background-size: 44px 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 410px) {
+  .navigation__burger-button_type_burger {
+    width: 40px;
+    height: 43px;
+    background-image: url(../../images/burger-icon-320.svg);
+    background-size: 40px 43px;
+  }
+}
+
+.navigation__burger-button_type_close {
+  /* position: absolute;
+  top: 27px;
+  right: 27px; */
+  width: 44px;
+  height: 44px;
+  background-image: url(../../images/close-icon-768.svg);
+  background-position: 19px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__burger-button {
+    display: block;
+  }
+
+  .navigation__list {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s ease-in-out;
+  }
+
+  .navigation__list_opened {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+}
