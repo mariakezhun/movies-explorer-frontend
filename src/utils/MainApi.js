@@ -24,13 +24,13 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
-  authorize({ password, email }) {
+  authorize(data) {
     return fetch(`${this._BASE_URL}/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ password, email }),
+      body: JSON.stringify({ email: data.email, password: data.password }),
     }).then(this._checkResponse);
   }
   checkToken() {

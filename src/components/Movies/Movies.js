@@ -15,7 +15,7 @@ function Movies(props) {
         isToggle={props.isToggle}
         handleShortMoviesChange={props.handleShortMoviesChange}
       />
-      {!props.isSearched ? (
+      {props.isPreloader ? (
         <Preloader />
       ) : props.isResult ? (
         <MoviesCardList

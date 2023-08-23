@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 6;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s ease-in-out;
@@ -148,7 +148,7 @@
   border: none;
   display: none;
   position: relative;
-  z-index: 4;
+  z-index: 7;
   transition: opacity 0.5s ease-in-out;
 }
 

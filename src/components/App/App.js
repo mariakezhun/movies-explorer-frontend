@@ -44,6 +44,7 @@ function App() {
   const [isResult, setIsResult] = React.useState(
     JSON.parse(localStorage.getItem('Result'))
   );
+  const [isPreloader, setIsPreloader] = React.useState(false);
 
   const location = useLocation();
   const isHeaderLocation = ['/', '/profile', '/movies', '/saved-movies'];
@@ -99,12 +100,11 @@ function App() {
       });
   }, [loggedIn]);
 
-  const handleRegistrate = (name, password, email) => {
+  const handleRegistrate = (data) => {
     mainApi
-      .register(name, password, email)
-      .then((res) => {
-        localStorage.setItem('token', res.token);
-        navigate('/signin');
+      .register({ name: data.name, password: data.password, email: data.email })
+      .then(() => {
+        handleLogin({ password: data.password, email: data.email });
         setErrorMessage('');
       })
       .catch((err) => {
@@ -119,7 +119,7 @@ function App() {
 
   const handleLogin = (data) => {
     mainApi
-      .authorize(data)
+      .authorize({ email: data.email, password: data.password })
       .then((res) => {
         localStorage.setItem('token', res.token);
         setLoggedIn(true);
@@ -165,7 +165,7 @@ function App() {
           console.log(errorMessage);
         } else {
           setCurrentUser(res);
-          setErrorMessage('')
+          setErrorMessage('');
         }
       })
       .catch(() => {
@@ -193,12 +193,15 @@ function App() {
         .toLowerCase()
         .includes(searchInputValue.toLowerCase());
     });
+    setIsPreloader(true)
     if (searchFilter.length < 1) {
       setIsResult(false);
       setFoundMovies([]);
+      setTimeout(() => setIsPreloader(false), 500);
     } else {
       setFoundMovies(searchFilter);
       setIsResult(true);
+      setTimeout(() => setIsPreloader(false), 500);
     }
   }
 
@@ -325,7 +328,7 @@ function App() {
                   onSearchChange={handleSearchChange}
                   onMovieCardSave={saveMovie}
                   savedMovies={savedMovies}
-                  isSearched={isSearched}
+                  isPreloader={isPreloader}
                   isToggle={isToggle}
                   handleShortMoviesChange={handleShortMoviesChange}
                   isResult={isResult}
