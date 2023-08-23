@@ -129,4 +129,7 @@ class MainApi {
   }
 }
 
-export const mainApi = new MainApi({ BASE_URL: 'https://api.mkezhun.nomoredomains.xyz' });
+export const mainApi = new MainApi({
+  // BASE_URL: 'https://api.mkezhun.nomoredomains.xyz',
+  BASE_URL: 'http://localhost:3000',
+});

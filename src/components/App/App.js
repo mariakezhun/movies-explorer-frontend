@@ -105,6 +105,7 @@ function App() {
       .then((res) => {
         localStorage.setItem('token', res.token);
         navigate('/signin');
+        setErrorMessage('');
       })
       .catch((err) => {
         if (err === errorConflict) {
@@ -123,13 +124,14 @@ function App() {
         localStorage.setItem('token', res.token);
         setLoggedIn(true);
         navigate('/movies');
+        setErrorMessage('');
       })
       .catch((err) => {
         console.log(err);
         if (err === errorBadRequest) {
           setErrorMessage('Вы ввели неправильный логин или пароль');
         } else {
-          setErrorMessage('При регистрации пользователя произошла ошибка');
+          setErrorMessage('При входе в аккаунт произошла ошибка');
         }
       });
   };
@@ -163,6 +165,7 @@ function App() {
           console.log(errorMessage);
         } else {
           setCurrentUser(res);
+          setErrorMessage('')
         }
       })
       .catch(() => {

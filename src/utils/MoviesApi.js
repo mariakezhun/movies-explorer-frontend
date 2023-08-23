@@ -11,11 +11,8 @@ class MoviesApi {
   }
 
   getMovieCards() {
-    const token = localStorage.getItem('token');
-
     return fetch(`${this._BASE_URL}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     }).then(this._checkResponse);
