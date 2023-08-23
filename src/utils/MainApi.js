@@ -129,4 +129,4 @@ class MainApi {
   }
 }
 
-export const mainApi = new MainApi({ BASE_URL: 'http://localhost:3000' });
+export const mainApi = new MainApi({ BASE_URL: 'https://mkezhunmovie.nomoredomains.xyz' });

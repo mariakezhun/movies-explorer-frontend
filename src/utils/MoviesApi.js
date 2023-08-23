@@ -20,19 +20,6 @@ class MoviesApi {
       },
     }).then(this._checkResponse);
   }
-
-  // addMovieCards(movie) {
-  //   const token = localStorage.getItem('token');
-
-  //   return fetch(`${this._BASE_URL}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(movie),
-  //   }).then(this._checkResponse);
-  // }
 }
 
 export const moviesApi = new MoviesApi({
