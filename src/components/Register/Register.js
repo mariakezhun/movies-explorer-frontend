@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 function Register(props) {
-  const { values, handleChange, errors } = useFormWithValidation({});
+  const { values, handleChange, errors, isValid, setIsValid } = useFormWithValidation({});
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,6 +14,12 @@ function Register(props) {
       email: values.email,
     });
   }
+
+  React.useEffect(() => {
+    if (values < 1) {
+      setIsValid(false);
+    }
+  }, [values, setIsValid]);
 
   return (
     <section className='register'>
@@ -75,7 +81,7 @@ function Register(props) {
         </div>
         <div className='register__save-container'>
           <span className='register__save-error'>{props.errorMessage}</span>
-          <button className='register__button' type='submit'>
+          <button className='register__button' type='submit' disabled={!isValid}>
             Зарегистрироваться
           </button>
         </div>
