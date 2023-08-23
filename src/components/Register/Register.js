@@ -71,7 +71,7 @@ function Register(props) {
           id='register-password'
           name='password'
           required
-          minLength='2'
+          minLength='8'
           maxLength='30'
         />
         <div className='register__error-container'>
