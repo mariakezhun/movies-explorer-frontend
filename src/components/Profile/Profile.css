@@ -85,6 +85,15 @@
   font-weight: 400;
 }
 
+.profile__input-error{
+  margin: 16px 0 0;
+  padding: 0;
+  color: #ff004c;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 400;
+}
+
 .profile__edit {
   cursor: pointer;
   padding: 0;

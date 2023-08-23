@@ -1,5 +1,4 @@
 import './Main.css';
-import Header from '../Header/Header';
 import React from 'react';
 import Promo from '../Promo/Promo';
 import NavTab from '../NavTab/NavTab';
@@ -9,11 +8,9 @@ import AboutMe from '../AboutMe/AboutMe';
 import Footer from '../Footer/Footer';
 
 function Main() {
-  const [loggedIn] = React.useState(false);
 
   return (
     <main className='main'>
-      <Header loggedIn={loggedIn} />
       <Promo />
       <NavTab />
       <AboutProject />

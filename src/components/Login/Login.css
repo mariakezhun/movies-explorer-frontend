@@ -126,6 +126,10 @@
   font-size: 0.875rem;
   font-weight: 500;
 }
+.login__button:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+}
 
 @media screen and (max-width: 450px) {
   .login__button {

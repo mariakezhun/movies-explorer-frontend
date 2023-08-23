@@ -40,7 +40,6 @@
   align-items: center;
   margin: 0 0 0 19px;
   width: 100%;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 640px) {
@@ -53,6 +52,8 @@
   display: flex;
   align-items: center;
   column-gap: 10px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .search-form__search-icon {
@@ -75,10 +76,6 @@
   line-height: 1.25rem;
   border: none;
   outline: none;
-}
-
-.search-form__search-input:focus {
-  border-bottom: 1px solid #e8e8e8;
 }
 
 @media screen and (max-width: 640px) {

@@ -1,21 +1,33 @@
 import './Movies.css';
 import React from 'react';
-import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
+import Preloader from '../Preloader/Preloader';
 
-function Movies() {
-  const [loggedIn] = React.useState(true);
-
+function Movies(props) {
   return (
     <section className='movies'>
-      <Header loggedIn={loggedIn} />
-      <SearchForm />
-      <MoviesCardList />
-      <div className='movies__button-container'>
-        <button className='movies__more-button'>Ещё</button>
-      </div>
+      <SearchForm
+        handleSearchSubmit={props.handleSearchSubmit}
+        searchInputValue={props.searchInputValue}
+        onSearchChange={props.onSearchChange}
+        isToggle={props.isToggle}
+        handleShortMoviesChange={props.handleShortMoviesChange}
+      />
+      {!props.isSearched ? (
+        <Preloader />
+      ) : props.isResult ? (
+        <MoviesCardList
+          movies={props.movies}
+          onMovieCardSave={props.onMovieCardSave}
+          savedMovies={props.savedMovies}
+          foundMovies={props.foundMovies}
+          shortMovies={props.shortMovies}
+        />
+      ) : (
+        <p className='movies__not-found'>Ничего не найдено</p>
+      )}
       <Footer />
     </section>
   );

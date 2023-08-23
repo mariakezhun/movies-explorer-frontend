@@ -1,65 +1,85 @@
 import './Register.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
-function Register() {
+function Register(props) {
+  const { values, handleChange, errors } = useFormWithValidation({});
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.handleRegistrate({
+      name: values.name,
+      password: values.password,
+      email: values.email,
+    });
+  }
+
   return (
     <section className='register'>
       <button className='register__logo'></button>
       <h1 className='register__title'>Добро пожаловать!</h1>
-      <form className='register__form'>
+      <form onSubmit={handleSubmit} className='register__form'>
         <label className='register__lable' htmlFor='register-name'>
           Имя
         </label>
         <input
+          value={values.name}
+          onChange={handleChange}
           className='register__input'
           type='text'
           id='register-name'
-          name='register-name'
+          name='name'
           required
           minLength='2'
           maxLength='30'
         />
         <div className='register__error-container'>
-          <span className='register__error name-error'></span>
+          <span className='register__error name-error'>{errors.name}</span>
         </div>
         <label className='register__lable' htmlFor='register-email'>
           E-mail
         </label>
         <input
+          value={values.email}
+          onChange={handleChange}
           className='register__input'
           type='email'
           id='register-email'
-          name='register-email'
+          name='email'
           required
           minLength='2'
           maxLength='30'
         />
         <div className='register__error-container'>
-          <span className='register__error email-error'></span>
+          <span className='register__error email-error'>{errors.email}</span>
         </div>
         <label className='register__lable' htmlFor='register-password'>
           Пароль
         </label>
         <input
+          value={values.password}
+          onChange={handleChange}
           className='register__input'
           type='password'
           id='register-password'
-          name='register-password'
+          name='password'
           required
           minLength='2'
           maxLength='30'
         />
         <div className='register__error-container'>
-          <span className='register__error password-error'></span>
+          <span className='register__error password-error'>
+            {errors.password}
+          </span>
+        </div>
+        <div className='register__save-container'>
+          <span className='register__save-error'>{props.errorMessage}</span>
+          <button className='register__button' type='submit'>
+            Зарегистрироваться
+          </button>
         </div>
       </form>
-      <div className='register__save-container'>
-        <p className='register__save-error'>
-          {/* При обновлении профиля произошла ошибка. */}
-        </p>
-        <button className='register__button'>Зарегистрироваться</button>
-      </div>
       <div className='register__link-container'>
         <p className='register__link-text'>Уже зарегистрированы?</p>
         <Link to='/signin' className='register__link'>
