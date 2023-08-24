@@ -11,13 +11,19 @@ function SavedMovies(props) {
         handleSearchSubmit={props.handleSearchSubmit}
         searchInputValue={props.searchInputValue}
         onSearchChange={props.onSearchChange}
+        isToggle={props.isToggle}
+        handleShortMoviesChange={props.handleShortMoviesChange}
       />
-      <MoviesCardList
-        movies={props.movies}
-        onMovieCardDelete={props.onMovieCardDelete}
-        savedMovies={props.savedMovies}
-        foundMovies={props.foundMovies}
-      />
+      {!props.isResult && props.isSearched ? (
+        <p className='movies__not-found'>Ничего не найдено</p>
+      ) : (
+        <MoviesCardList
+          movies={props.movies}
+          onMovieCardDelete={props.onMovieCardDelete}
+          savedMovies={props.savedMovies}
+          foundMovies={props.foundMovies}
+        />
+      )}
       <Footer />
     </section>
   );

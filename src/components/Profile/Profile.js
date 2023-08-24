@@ -32,7 +32,7 @@ function Profile(props) {
       setIsEdit(false);
     }
   }
-
+  console.log(props.successMessage);
   return (
     <>
       <section className='profile'>
@@ -74,7 +74,14 @@ function Profile(props) {
           </label>
           <span className='profile__input-error'>{errors.email}</span>
           <div className='profile__save-container'>
-            <p className='profile__error'>{props.errorMessage}</p>
+            {props.isUpdate ? (
+              <p className='profile__success'>{props.successMessage}</p>
+            ) : (
+              <p className='profile__error'>{props.errorMessage}</p>
+            )}
+            {/* <p className='profile__error'>
+              {props.isUpdate ?  props.successMessage : props.errorMessage}
+            </p> */}
             {isEdit ? (
               <button className='profile__button' disabled={!isValid}>
                 Сохранить

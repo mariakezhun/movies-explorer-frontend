@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
 
 function Movies(props) {
+  console.log(props.isSearched)
   return (
     <section className='movies'>
       <SearchForm
@@ -24,9 +25,12 @@ function Movies(props) {
           savedMovies={props.savedMovies}
           foundMovies={props.foundMovies}
           shortMovies={props.shortMovies}
+          onMovieCardDelete={props.onMovieCardDelete}
         />
-      ) : (
+      ) : props.isSearched ? (
         <p className='movies__not-found'>Ничего не найдено</p>
+      ) : (
+        ''
       )}
       <Footer />
     </section>

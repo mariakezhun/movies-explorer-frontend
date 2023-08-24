@@ -11,8 +11,20 @@ function Footer() {
       <div className='footer__container'>
         <p className='footer__text'>© 2023</p>
         <div className='footer__text-container'>
-          <p className='footer__text'>Яндекс.Практикум</p>
-          <p className='footer__text'>Github</p>
+          <a
+            className='footer__text'
+            target='_blank'
+            href='https://practicum.yandex.ru/'
+          >
+            Яндекс.Практикум
+          </a>
+          <a
+            className='footer__text'
+            target='_blank'
+            href='https://github.com/'
+          >
+            Github
+          </a>
         </div>
       </div>
     </div>

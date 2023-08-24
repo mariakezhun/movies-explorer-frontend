@@ -52,7 +52,7 @@
 }
 
 .movies-card__button_type_already-saved {
-  cursor: default;
+  cursor: pointer;
   width: 21px;
   height: 21px;
   background-size: 21px 21px;

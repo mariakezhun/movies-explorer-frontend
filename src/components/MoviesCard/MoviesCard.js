@@ -7,6 +7,10 @@ function MoviesCard(props) {
   const cardLocation = useLocation();
   const movieLocation = '/movies';
 
+  const savedMovie = props.savedMovies.find(
+    (i) => i.movieId === props.movie.id
+  );
+
   React.useEffect(() => {
     setIsSaved(
       props.savedMovies.some((savedMovie) => {
@@ -16,7 +20,9 @@ function MoviesCard(props) {
   }, [props.movie.id, props.savedMovies]);
 
   function handleMovieCardSave() {
-    return !isSaved ? props.onMovieCardSave(props.movie) : '';
+    return !isSaved
+      ? props.onMovieCardSave(props.movie)
+      : props.onMovieCardDelete(savedMovie);
   }
 
   function handleMovieCardDelete() {
@@ -27,7 +33,9 @@ function MoviesCard(props) {
     const minutes = totalMinutes % 60;
     const hours = Math.floor(totalMinutes / 60);
 
-    return `${hours > 0 ? ` ${hours}ч` : ''}${minutes > 0 ? ` ${minutes}м` : ''}`;
+    return `${hours > 0 ? ` ${hours}ч` : ''}${
+      minutes > 0 ? ` ${minutes}м` : ''
+    }`;
   }
 
   const movieDuration = hoursAndMinutes(props.movie.duration);

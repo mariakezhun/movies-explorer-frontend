@@ -45,8 +45,8 @@ function MoviesCardList(props) {
   };
 
   React.useEffect(() => {
-    return setVisibleCardCount(initialCardCount)
-  }, [props.movies])
+    return setVisibleCardCount(initialCardCount);
+  }, [props.movies]);
 
   const calculateCardCount = () => {
     if (isDesktop) {
@@ -75,7 +75,8 @@ function MoviesCardList(props) {
         ))}
       </div>
       {props.movies.length > 11 &&
-      moviesCardListLocation.pathname === moviesLocation ? (
+      moviesCardListLocation.pathname === moviesLocation &&
+      props.movies.length > roundedVisibleCardCount ? (
         <div className='movies-card-list__button-container'>
           <button
             className='movies-card-list__more-button'

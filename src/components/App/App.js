@@ -37,14 +37,23 @@ function App() {
   );
   const [isSearchedSaved, setIsSearchedSaved] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
+  const [successMessage, setSuccessMessage] = React.useState('');
   const [shortMovies, setShortMovies] = React.useState([]);
+  const [shortSavedMovies, setSavedShortMovies] = React.useState([]);
   const [isToggle, setIsToggle] = React.useState(
     JSON.parse(localStorage.getItem('Toggle'))
+  );
+  const [isSavedToggle, setSavedIsToggle] = React.useState(
+    JSON.parse(localStorage.getItem('SavedToggle'))
   );
   const [isResult, setIsResult] = React.useState(
     JSON.parse(localStorage.getItem('Result'))
   );
+  const [isSavedResult, setIsSavedResult] = React.useState(
+    JSON.parse(localStorage.getItem('SavedResult'))
+  );
   const [isPreloader, setIsPreloader] = React.useState(false);
+  const [isUpdate, setIsUpdate] = React.useState(false);
 
   const location = useLocation();
   const isHeaderLocation = ['/', '/profile', '/movies', '/saved-movies'];
@@ -139,7 +148,7 @@ function App() {
   function handleLogOut() {
     localStorage.removeItem('token');
     setLoggedIn(false);
-    navigate('/signin');
+    navigate('/');
     setFoundMovies([]);
     setSearchInputValue('');
     setIsSearched(false);
@@ -152,7 +161,9 @@ function App() {
     localStorage.removeItem('Movies');
     localStorage.removeItem('Searched');
     localStorage.removeItem('Result');
+    localStorage.removeItem('SavedResult');
     localStorage.removeItem('Toggle');
+    localStorage.removeItem('SavedToggle');
     localStorage.removeItem('Login');
   }
 
@@ -162,10 +173,12 @@ function App() {
       .then((res, err) => {
         if (err === errorConflict) {
           setErrorMessage('Пользователь с таким email уже существует');
-          console.log(errorMessage);
         } else {
           setCurrentUser(res);
           setErrorMessage('');
+          setIsUpdate(true);
+          setSuccessMessage('Данные успешно обновлены')
+          setTimeout(() => setSuccessMessage(''), 1000);
         }
       })
       .catch(() => {
@@ -183,7 +196,9 @@ function App() {
     localStorage.setItem('Movies', JSON.stringify(movies));
     localStorage.setItem('Searched', JSON.stringify(isSearched));
     localStorage.setItem('Result', JSON.stringify(isResult));
+    localStorage.setItem('SavedResult', JSON.stringify(isSavedResult));
     localStorage.setItem('Toggle', JSON.stringify(isToggle));
+    localStorage.setItem('SavedToggle', JSON.stringify(isToggle));
     localStorage.setItem('Login', JSON.stringify(loggedIn));
   });
 
@@ -193,7 +208,7 @@ function App() {
         .toLowerCase()
         .includes(searchInputValue.toLowerCase());
     });
-    setIsPreloader(true)
+    setIsPreloader(true);
     if (searchFilter.length < 1) {
       setIsResult(false);
       setFoundMovies([]);
@@ -211,7 +226,13 @@ function App() {
         .toLowerCase()
         .includes(searchSavedInputValue.toLowerCase());
     });
-    setFoundSavedMovies(searchSavedFilter);
+    if (searchSavedFilter.length < 1) {
+      setIsSavedResult(false);
+      setFoundSavedMovies([]);
+    } else {
+      setFoundSavedMovies(searchSavedFilter);
+      setIsSavedResult(true);
+    }
   }
 
   function handleSearchChange(e) {
@@ -254,7 +275,7 @@ function App() {
       });
   }
 
-  function handleMovieDelete(movie) {
+  function handleSaveMovieDelete(movie) {
     mainApi
       .deleteMovie(movie._id)
       .then(() => {
@@ -275,10 +296,24 @@ function App() {
     }
   }, [isToggle, foundMovies, setShortMovies]);
 
+  React.useEffect(() => {
+    if (isSavedToggle) {
+      const filteredShortSavedMovies = savedMovies.filter((movie) => {
+        return movie.duration <= 40;
+      });
+      setSavedShortMovies(filteredShortSavedMovies);
+    }
+  }, [isSavedToggle, savedMovies, setSavedShortMovies]);
+
   function handleShortMoviesChange() {
     setIsToggle(!isToggle);
   }
 
+  function handleShortSavedMoviesChange() {
+    setSavedIsToggle(!isSavedToggle);
+  }
+
+  console.log(shortSavedMovies);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='body'>
@@ -314,6 +349,8 @@ function App() {
                   onUpdateUser={handleUpdateUser}
                   errorMessage={errorMessage}
                   loggedIn={loggedIn}
+                  successMessage={successMessage}
+                  isUpdate={isUpdate}
                 />
               }
             />
@@ -333,6 +370,8 @@ function App() {
                   handleShortMoviesChange={handleShortMoviesChange}
                   isResult={isResult}
                   loggedIn={loggedIn}
+                  isSearched={isSearched}
+                  onMovieCardDelete={handleSaveMovieDelete}
                 />
               }
             />
@@ -341,14 +380,24 @@ function App() {
               element={
                 <ProtectedRoute
                   element={SavedMovies}
-                  movies={isSearchedSaved ? foundSavedMovies : savedMovies}
-                  onMovieCardDelete={handleMovieDelete}
+                  movies={
+                    isSearchedSaved
+                      ? foundSavedMovies
+                      : isSavedToggle
+                      ? shortSavedMovies
+                      : savedMovies
+                  }
+                  onMovieCardDelete={handleSaveMovieDelete}
                   savedMovies={savedMovies}
                   handleSearchSubmit={handleSearchSavedSubmit}
                   searchInputValue={searchSavedInputValue}
                   onSearchChange={handleSearchSavedChange}
                   foundMovies={foundSavedMovies}
                   loggedIn={loggedIn}
+                  isSearched={isSearchedSaved}
+                  isResult={isSavedResult}
+                  isToggle={isSavedToggle}
+                  handleShortMoviesChange={handleShortSavedMoviesChange}
                 />
               }
             />

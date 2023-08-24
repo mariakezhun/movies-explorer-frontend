@@ -2,6 +2,7 @@ import './Register.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
+import { emailRegex } from '../../utils/emailRegex';
 
 function Register(props) {
   const { values, handleChange, errors, isValid, setIsValid } = useFormWithValidation({});
@@ -56,6 +57,7 @@ function Register(props) {
           required
           minLength='2'
           maxLength='30'
+          pattern={emailRegex}
         />
         <div className='register__error-container'>
           <span className='register__error email-error'>{errors.email}</span>

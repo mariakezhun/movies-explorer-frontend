@@ -82,6 +82,7 @@
   text-align: right;
   font-size: 0.8125rem;
   font-weight: 400;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 410px) {
