@@ -198,7 +198,7 @@ function App() {
     localStorage.setItem('Result', JSON.stringify(isResult));
     localStorage.setItem('SavedResult', JSON.stringify(isSavedResult));
     localStorage.setItem('Toggle', JSON.stringify(isToggle));
-    localStorage.setItem('SavedToggle', JSON.stringify(isToggle));
+    localStorage.setItem('SavedToggle', JSON.stringify(isSavedToggle));
     localStorage.setItem('Login', JSON.stringify(loggedIn));
   });
 
